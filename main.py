@@ -58,6 +58,9 @@ data = pd.concat([X_train_encoded, y_train], axis=1)
 # Perform cross-validation
 cv_scores = cross_val_score(model, X_train_encoded, y_train, cv=5)  # Adjust the number of folds (cv) as desired
 
+@app.route("/health")
+def health():
+    return "UP"
 
 @app.route("/user", methods=["POST"])
 def user():
@@ -85,4 +88,4 @@ def user():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)
