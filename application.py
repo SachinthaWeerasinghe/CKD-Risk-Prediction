@@ -48,8 +48,7 @@ def user():
 
     # Predict the risk status for the user input data
     predicted_risk_status = clf.predict(user_input_encoded)
-
-    return predicted_risk_status, 200
+    return predicted_risk_status[0], 200
 
 
 if __name__ == "__main__":
